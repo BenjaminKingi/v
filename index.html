@@ -1,36 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will you be my Valentine? 💕</title>
+    <title>Will You Be My Valentine? 💕</title>
+    <meta name="description" content="A romantic cinematic Valentine's Day experience crafted just for you.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="hearts-bg"></div>
 
-    <div class="container">
-        <h1>Will you be my Valentine? 💕</h1>
+    <!-- Floating Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
 
-        <div class="gif-container">
-            <img id="cat-gif" src="https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif" alt="cute character">
-        </div>
-
-        <div class="buttons">
-            <button id="yes-btn" onclick="handleYesClick()">Yes</button>
-            <button id="no-btn" onclick="handleNoClick()">No</button>
-        </div>
-        <div id="tease-toast"></div>
+    <!-- Soft Glowing Orbs -->
+    <div class="glow-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
     </div>
 
-    <audio id="bg-music" loop autoplay muted>
+    <!-- ========== SCENE 1: Opening ========== -->
+    <section class="scene scene-intro active" id="scene-intro">
+        <div class="scene-content">
+            <p class="scene-subtitle fade-in">Before I ask you something important...</p>
+            <h1 class="scene-headline fade-in delay-1">I need to tell you a story.</h1>
+            <p class="scene-body fade-in delay-2">A story about the moment everything changed.</p>
+            <button class="cinematic-btn fade-in delay-3" id="btn-begin" aria-label="Begin the story">
+                <span>Begin</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== SCENE 2: The Story ========== -->
+    <section class="scene scene-story" id="scene-story">
+        <div class="scene-content">
+            <p class="scene-subtitle fade-in">Chapter One</p>
+            <h2 class="scene-headline fade-in delay-1">The Day We Met</h2>
+            <p class="scene-body fade-in delay-2">
+                There are billions of people in this world,<br>
+                yet somehow, the universe brought me to you.<br>
+                And nothing has been the same since.
+            </p>
+            <button class="cinematic-btn fade-in delay-3" id="btn-next-1" aria-label="Continue">
+                <span>Continue</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== SCENE 3: Deeper ========== -->
+    <section class="scene scene-deeper" id="scene-deeper">
+        <div class="scene-content">
+            <p class="scene-subtitle fade-in">Chapter Two</p>
+            <h2 class="scene-headline fade-in delay-1">Falling For You</h2>
+            <p class="scene-body fade-in delay-2">
+                Your smile became my favourite sight.<br>
+                Your laugh, my favourite sound.<br>
+                Your arms, my favourite place to be.
+            </p>
+            <div class="decorative-heart fade-in delay-2">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M50 88 C25 65 5 50 5 30 C5 15 15 5 30 5 C40 5 48 12 50 18 C52 12 60 5 70 5 C85 5 95 15 95 30 C95 50 75 65 50 88Z"
+                        fill="currentColor" />
+                </svg>
+            </div>
+            <button class="cinematic-btn fade-in delay-3" id="btn-next-2" aria-label="Continue">
+                <span>Continue</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== SCENE 4: The Question ========== -->
+    <section class="scene scene-question" id="scene-question">
+        <div class="scene-content">
+            <p class="scene-subtitle fade-in">And so I ask...</p>
+            <h2 class="scene-headline question-headline fade-in delay-1">Will you be my Valentine?</h2>
+
+            <!-- Animated Character -->
+            <div class="character-container fade-in delay-2">
+                <img id="character-img" src="https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif"
+                    alt="Hopeful character waiting for your answer">
+            </div>
+
+            <!-- Buttons -->
+            <div class="question-buttons fade-in delay-3">
+                <button id="yes-btn" aria-label="Yes, I will be your Valentine">Yes 💕</button>
+                <button id="no-btn" aria-label="No">No</button>
+            </div>
+
+            <!-- Tease Toast -->
+            <div id="tease-toast" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- ========== SCENE 5: Heart Burst + Love Letter ========== -->
+    <section class="scene scene-yes" id="scene-yes">
+        <canvas id="hearts-canvas"></canvas>
+        <div class="scene-content love-letter-content">
+            <div class="love-letter fade-in">
+                <p class="letter-greeting">My Dearest Valentine,</p>
+                <p class="letter-body">
+                    I knew you'd say yes. And now let me tell you what that means to me.
+                </p>
+                <p class="letter-body">
+                    You are the first thought when I wake, and the last wish before I sleep.
+                    Every day with you feels like a gift I never knew I deserved.
+                </p>
+                <p class="letter-body">
+                    Thank you for choosing me. Thank you for choosing <em>us</em>.
+                </p>
+                <p class="letter-closing">Forever yours,</p>
+                <p class="letter-signature">— With all my love 💕</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop preload="auto">
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
-    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
+    <!-- Music Toggle -->
+    <button id="music-toggle" title="Toggle music" aria-label="Toggle background music">
+        <svg id="music-icon-on" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+        </svg>
+        <svg id="music-icon-off" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" style="display:none;">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+            <line x1="1" y1="1" x2="23" y2="23" stroke-width="2.5" />
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
+
 </html>
