@@ -2,7 +2,7 @@
 
 A fun, interactive Valentine's Day page where the "Yes" button grows bigger every time they click "No" — with falling hearts, cute GIFs, music, and playful toast messages. Built with pure HTML, CSS, and JavaScript.
 
-**Live demo:** [BenjaminKingi.github.io/v-day](https://BenjaminKingi.github.io/v-day)
+**Live demo:** [BenjaminKingi.github.io/v-day](https://benjaminkingi.github.io/v/)
 
 
 ---
@@ -30,7 +30,7 @@ That's it. Done. You're welcome.
 Want your own version you can customize? Follow these steps:
 
 #### 1. Fork the Repo
-- Go to [github.com/BenjaminKingi/v-day](https://github.com/BenjaminKingia/v-day)
+- Go to [github.com/BenjaminKingi/v-day](https://github.com/BenjaminKingia/v/)
 - Click the **Fork** button in the top-right corner
 - This creates a copy of the repo under your GitHub account
 
@@ -67,3 +67,4 @@ v-day/
 ## License
 
 Do whatever you want with it. Make someone smile.
+
